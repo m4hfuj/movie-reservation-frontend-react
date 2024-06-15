@@ -1,0 +1,225 @@
+/**
+ * copyright 2024 | m4hfuj
+ */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+:root {
+
+  /* --background-color: #03045e; */
+  --background-color: #000;
+  --navbar-color: #1b1b1b;
+  --primary-color: #141414;
+  /* --primary-color: #0077b6; */
+  --secondary-color: #00b4d8;
+  --accent-color: #90e0ef;
+  --text-color: #caf0f8;
+
+}
+
+/*-----------------------------------*\
+#GLOBAL STYLES
+\*-----------------------------------*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  }
+  
+  
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  background-color: var(--background-color);
+  }
+  
+div {  
+  color: var(--text-color);
+}
+
+
+/*-----------------------------------*\
+#HEADER
+\*-----------------------------------*/
+/* .dropdown-menu { */
+  /* position: absolute; */
+  /* top: 0; */
+  /* width: 100%; */
+  /* visibility: visible; */
+/* } */
+
+
+
+
+/*-----------------------------------*\
+#CAROUSEL
+\*-----------------------------------*/
+#bg-img {
+  height: 70vh;  
+  object-fit: cover; 
+  border-radius: 0%;
+}
+
+.upper-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+
+  justify-content: center;
+  align-items: center;
+}
+
+/* #carouselExampleIndicators #poster-img {
+  height: 75%;
+} */
+
+#carouselExampleIndicators h5 {
+  font-size: 2.5rem;
+}
+
+@media (max-width: 960px) {
+  #poster-img {
+    height: 0px;  
+    width: 0px;
+    visibility: hidden;
+  }
+}
+
+
+
+/*-----------------------------------*\
+#FEATURED MOVIES
+\*-----------------------------------*/
+#up-coming-poster-img {
+  opacity: 0.2;
+  object-fit: cover;
+}
+
+.card-img-overlay {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+
+.card-title,
+.card-text {
+  margin-bottom: 1rem;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+
+
+/*-----------------------------------*\
+  #MovieDetails Page
+\*-----------------------------------*/
+#MovieDetails-poster-img {
+  max-height: 350px;
+}
+
+#theatre-bgImg {
+  max-height: 190px;
+  object-fit: cover;
+  opacity: 0.2;
+}
+
+#theatre-card {
+  transition: 0.3s;
+}
+
+#theatre-card:hover {
+  transform: scale(1.05,1.05);
+  transition: 0.3s;
+}
+
+
+
+
+
+/*-----------------------------------*\
+  #FOOTER
+\*-----------------------------------*/
+.footer-list {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links h4 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.footer-link {
+  font-size: .9rem;
+
+  display: block;
+  margin-bottom: 10px;
+  color: #ccc;
+  transition: color 0.3s;
+  text-decoration: none;
+}
+
+.footer-top {
+  border-bottom: var(--border-line);
+}
+
+.py-6 {
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+}
+
+.pt {
+  padding-top: 2rem;
+}
+
+
+
+
+/*-----------------------------------*\
+#BG COLORS
+\*-----------------------------------*/
+.bg-primary-color {
+  background-color: var(--primary-color);
+}
+
+.bg-secondary-color {
+  background-color: var(--secondary-color);
+}
+
+.bg-accent {
+  background-color: var(--accent-color);
+}
+
+.bg-navbar-color {
+  background-color: var(--navbar-color);
+}
+
+.bg-black {
+  background-color: #000;
+}
+
+
+.fs-7 {
+  font-size: 0.85rem;
+}
+
+
+
+
+
+
+
+
+
