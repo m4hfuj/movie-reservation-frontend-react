@@ -1,10 +1,7 @@
-// MovieDetails.js
 import React, { useEffect } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { useNavigate } from 'react-router-dom';
-
 
 
 const movies = [
@@ -86,7 +83,6 @@ const movies = [
 
 ];
 
-
 const theatres = [
   {
     id: 1,
@@ -95,7 +91,7 @@ const theatres = [
     address: "Andheri West, Mumbai",
     phone: "022-1234567",
     email: "pvr.andheri@pvr.in",
-    timings: ["10:00 AM", "4:00 PM"],
+    timings: ["10:00 AM", "1:00 PM", "4:00 PM"],
     bgImg: "https://media.cnn.com/api/v1/images/stellar/prod/210406161315-01-movie-theater-covid-0315.jpg?q=w_2129,h_1198,x_0,y_0,c_fill"
   },
   {
@@ -115,133 +111,49 @@ const theatres = [
     address: "Marathahalli, Bangalore",
     phone: "080-1234567",
     email: "carnival.marathahalli@carnival.in",
-    timings: ["10:00 AM", "1:00 PM"],
-    bgImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQddPdNk8ZrTz1t9p9WbITu9bndVyc_Z4XlFQ&s"
-  },
-  {
-    id: 4,
-    name: "Carnival Cinemas",
-    location: "Bangalore",
-    address: "Marathahalli, Bangalore",
-    phone: "080-1234567",
-    email: "carnival.marathahalli@carnival.in",
-    timings: ["10:00 AM", "1:00 PM", "9:40PM"],
+    timings: ["10:00 AM", "1:00 PM", "4:00 PM"],
     bgImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQddPdNk8ZrTz1t9p9WbITu9bndVyc_Z4XlFQ&s"
   }
 ];
 
 
 
+function TheatreDetails() {
 
-function MovieDetails() {
-  const { id } = useParams();
-  const movie = movies.find((movie) => movie.id === parseInt(id));
-
-  const navigate = useNavigate();
-
-  const handleTheatreClick = (mid, tid, sid) => {
-    // alert(mid, tid, sid);
-    navigate(`/movie/${mid}/theatre/${tid}/screening/${sid}`);
-  };
-
-
-  if (!movie) {
-    return <div>Movie not found</div>;
-  }
+  const { mid, tid, sid } = useParams();
+  // const movie = movies.find((movie) => movie.mid === );
+  const movie = movies.find((movie) => movie.id === parseInt(mid));
+  const theatre = theatres.find((theatre) => theatre.id === parseInt(tid));
 
   return (
 
-    <div className=''>
+    <div className='bg-dark'>
       <Header />
 
-      <div 
-        className="card bg-transparent border-0 py-5 mt-5 position-relative" 
-        style={{ 
-          backgroundImage: `url(${movie.bgImg})`, 
-          backgroundSize: 'cover', 
-          backgroundPosition: 'center'
-        }}
-      >
-        <div 
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: 'rgba(0, 0, 0, 0.6)'
-          }}
-        ></div>
-        <div className="container text-white position-relative" style={{ zIndex: 1 }}>
-          <div className="row g-0">
-            <div className="col-md-4 d-flex align-items-center justify-content-center">
-              <img id="MovieDetails-poster-img" src={movie.posterImg} alt={movie.title} />
-            </div>
-            <div className="col-md-8 d-flex align-items-center justify-content-center">
-              <div className="card-body">
-                <h5 className="fs-1">{movie.title}</h5>
-                <p>{movie.duration} | {movie.genre} | {movie.rating}</p>
-                <p>{movie.language}</p>
-                <p>{movie.synopsis}</p>
-                <a href={movie.trailerURL} className="btn btn-primary">Watch Trailer</a>
-              </div>
-            </div>
+      <div className='container py-5'>
+        <h1>{mid} {tid} {sid}</h1>
+
+        <h2>{movie.title}</h2>
+        {/* <h2>{theatre.name}</h2> */}
+
+        {/* <h2>Select a seat</h2>
+
+        <div className='seat-map'>
+          <div class="row  g-1">
+
+            <div class="col">some</div>
+
+
           </div>
-        
-        </div>
+        </div> */}
+
       </div>
-
-
-      <div className="container py-5">
-        <h3 className='my-4'>Showing in Theatres</h3>
-
-        {/* <div class="row row-cols-1 row-cols-md-3 g-4 py-4"> */}
-        
-        {theatres.map((theatre, index) => (
-
-            <div class="col">
-
-              <div class="card bg-navbar-color">
-                <div class="row">
-
-                  <div class="col-md-3 d-flex align-items-center">
-                    <div class="card-body ps-5">
-
-                        <h5 class="card-title">{theatre.name}</h5>
-                        <p class="fs-7 m-0">{theatre.address}</p>
-                        <p class="fs-7 m-0">
-                          <span className='me-2 text-primary'>Food & Beverage</span>
-                          <span className='me-2 text-warning'>Movie-Ticket</span>
-                          
-                        </p>
-
-                    </div>
-                  </div>
-                  <div class="col-md-8 d-flex align-items-center p-0">
-                    <div class="card-body">
-
-                      {theatre.timings.map((timing, sid) => (
-                        <button onClick={() => handleTheatreClick(movie.id, theatre.id, sid)} class="card-text btn btn-outline-success rounded-0 me-3"> {timing} </button>
-                      ))}
-                        
-                    </div>
-                  </div>
-                
-                </div>
-              </div>
-              
-            </div>
-
-        ))}
-            
-
-        {/* </div> */}
-      </div>
-
 
       <Footer />
     </div>
-  );
-}
 
-export default MovieDetails;
+  );
+};
+
+
+export default TheatreDetails;

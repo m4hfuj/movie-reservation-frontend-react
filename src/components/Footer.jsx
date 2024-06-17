@@ -4,10 +4,10 @@ function Footer() {
   return (
 
     
-    <footer id="footer" class="footer bg-navbar-color my-6">
+    <footer id="footer" class="footer bg-navbar-color">
 
-        <div class="footer-top py-5">
-          <div class="container">
+        <div class="footer-top py-1">
+          <div class="container pt-3">
             <div class="row gy-4">
 
               <div class="col-lg-6 col-md-6 footer-about ">
@@ -60,7 +60,9 @@ function Footer() {
           </div>
         </div>
 
-        <div class="container copyright text-center mt-0 pt py-3" id="fade-in-from-bottom">
+        <hr />
+
+        <div class="container copyright text-center mt-0 pt py-1">
           <p>© Copyright 2024 | Made by m4hfuj </p>
         </div>
 
